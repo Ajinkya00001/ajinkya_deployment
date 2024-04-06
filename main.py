@@ -11,7 +11,7 @@ def index():
 def model_prediction():
     data = request.form 
 
-    model = pickle.load(open(r'C:\Users\ajinkya\Desktop\sat_deply\logistic_model.pkl','rb'))
+    model = pickle.load(open(r'logistic_model.pkl','rb'))
     
     user_data = [[float(data['age']),
                   float(data['length_of_service']),
@@ -28,4 +28,4 @@ def model_prediction():
     return render_template("index.html", prediction=prediction)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)
